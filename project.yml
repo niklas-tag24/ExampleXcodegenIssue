@@ -1,0 +1,36 @@
+name: MyApp
+platform: [iOS]
+options:
+  localPackagesGroup: "Kits"
+settings:
+  DEVELOPMENT_TEAM: <DEVELOPMENT_TEAM>
+  base:
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 1.0
+    SWIFT_VERSION: "5.10"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+packages:
+  MyPackage:
+    path: "MyPackage"
+targets:
+  MyApp:
+    type: application
+    platform: iOS
+    supportedDestinations: [iOS]
+    sources: [MyApp]
+    settings:
+      base:
+        devices: [iPhone, iPad]
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: YES
+        DEVELOPMENT_TEAM: <DEVELOPMENT_TEAM>
+        PRODUCT_BUNDLE_IDENTIFIER: com.test.myapp32
+    info:
+      path: "./MyApp/Info.plist"
+    dependencies:
+      - package: MyPackage
+
+schemes:
+  MyApp:
+    build:
+      targets:
+        MyApp: all
